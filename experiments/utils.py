@@ -331,6 +331,8 @@ def _session_enrollment_latest_version(data):
             enrollment_date = datetime_from_timestamp(enrollment_date)
         if isinstance(last_seen, numbers.Number):
             last_seen = datetime_from_timestamp(last_seen)
+        if enrollment_date:
+            enrollment_date = fix_awareness(enrollment_date)
         if last_seen:
             last_seen = fix_awareness(last_seen)
     except ValueError:  # Data from previous version
